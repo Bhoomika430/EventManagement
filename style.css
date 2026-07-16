@@ -1,0 +1,331 @@
+/* ==========================================================
+   Event Registration Management System — Stylesheet
+   ========================================================== */
+
+:root {
+    --marriage-color: #b8860b;
+    --marriage-bg: #fff8ec;
+    --birthday-color: #d6336c;
+    --birthday-bg: #fff0f5;
+    --sportsday-color: #1e7d32;
+    --sportsday-bg: #eefaf0;
+    --primary: #3a3a6e;
+    --primary-dark: #26264a;
+    --text: #2c2c2c;
+    --muted: #6b6b6b;
+    --border: #e2e2e8;
+    --card-bg: #ffffff;
+    --page-bg: #f6f6fb;
+    --radius: 12px;
+    --shadow: 0 4px 14px rgba(0,0,0,0.07);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--page-bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------------- Header ---------------- */
+.site-header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    box-shadow: var(--shadow);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.site-header nav a {
+    margin-left: 18px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.site-header nav a:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* ---------------- Layout ---------------- */
+main.container {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    min-height: 70vh;
+}
+
+/* ---------------- Hero ---------------- */
+.hero {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    color: var(--primary-dark);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ---------------- Event type cards on home page ---------------- */
+.event-type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.type-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px 24px;
+    text-align: center;
+    border-top: 6px solid var(--primary);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.type-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.type-card .icon { font-size: 2.6rem; margin-bottom: 10px; }
+.type-card h2 { margin: 10px 0; font-size: 1.4rem; }
+.type-card p { color: var(--muted); font-size: 0.95rem; min-height: 48px; }
+
+.type-card.marriage { border-color: var(--marriage-color); }
+.type-card.birthday { border-color: var(--birthday-color); }
+.type-card.sportsday { border-color: var(--sportsday-color); }
+
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #fff !important;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.88; }
+.btn.small { padding: 6px 14px; font-size: 0.85rem; }
+.btn.danger { background: #c0392b; }
+.btn.outline { background: transparent; border: 2px solid var(--primary); color: var(--primary) !important; }
+
+.type-card.marriage .btn { background: var(--marriage-color); }
+.type-card.birthday .btn { background: var(--birthday-color); }
+.type-card.sportsday .btn { background: var(--sportsday-color); }
+
+/* ---------------- Event list / cards ---------------- */
+.page-title {
+    font-size: 1.9rem;
+    margin-bottom: 6px;
+    color: var(--primary-dark);
+}
+.page-subtitle {
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+.event-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-card .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.tag.marriage { background: var(--marriage-bg); color: var(--marriage-color); }
+.tag.birthday { background: var(--birthday-bg); color: var(--birthday-color); }
+.tag.sportsday { background: var(--sportsday-bg); color: var(--sportsday-color); }
+
+.event-card .body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.event-card h3 { margin: 0 0 8px; font-size: 1.2rem; }
+.event-card .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+.event-card .desc { flex: 1; color: var(--text); font-size: 0.93rem; margin-bottom: 16px; }
+
+/* ---------------- Forms ---------------- */
+.form-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 34px;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.form-group { margin-bottom: 18px; }
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 0.92rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: #fdfdfe;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.92rem;
+}
+.alert.success { background: #e8f7ee; color: #1e7d32; border: 1px solid #b7e4c7; }
+.alert.error { background: #fdecea; color: #c0392b; border: 1px solid #f5c6cb; }
+
+/* ---------------- Tables (admin dashboard) ---------------- */
+.table-wrap {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+table th, table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+table th {
+    background: #f0f0f7;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+table tr:hover td { background: #fafaff; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-card .num { font-size: 2rem; font-weight: 700; color: var(--primary); }
+.stat-card .label { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+
+/* ---------------- Login ---------------- */
+.login-wrap {
+    max-width: 400px;
+    margin: 60px auto;
+}
+
+/* ---------------- Misc ---------------- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+}
+
+.site-footer {
+    background: var(--primary-dark);
+    color: #d8d8e8;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 0.85rem;
+}
